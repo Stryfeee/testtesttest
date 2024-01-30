@@ -3,8 +3,22 @@
 @{
     ViewData["Title"] = "Home page";
 }
+@using WebApplication3.ViewModels
+@using WebApplication3.Model
+@using WebApplication3.Pages
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome Bookworm</h1>
+    <br />
+    <br />
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <h3>@Model.FirstName @Model.LastName?</h3>
+        <!-- Display other properties as needed -->
+    }
+    else
+    {
+        <p>You have not Signed in yet</p>
+    }
 </div>

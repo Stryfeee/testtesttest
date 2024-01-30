@@ -1,20 +1,32 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Identity;
+using WebApplication3.Model;
+using Microsoft.AspNetCore.Authorization;
 
-namespace WebApplication3.Pages
+[Authorize]
+public class IndexModel : PageModel
 {
-    public class IndexModel : PageModel
+    private readonly UserManager<ApplicationUser> userManager;
+
+    public IndexModel(UserManager<ApplicationUser> userManager)
     {
-        private readonly ILogger<IndexModel> _logger;
+        this.userManager = userManager;
+    }
 
-        public IndexModel(ILogger<IndexModel> logger)
+    public string FirstName { get; private set; }
+    public string LastName { get; private set; }
+
+    public void OnGet()
+    {
+        var userId = userManager.GetUserId(User);
+        if (userId != null)
         {
-            _logger = logger;
-        }
-
-        public void OnGet()
-        {
-
+            var user = userManager.FindByIdAsync(userId).Result;
+            if (user != null)
+            {
+                FirstName = user.FirstName;
+                LastName = user.LastName;
+            }
         }
     }
 }

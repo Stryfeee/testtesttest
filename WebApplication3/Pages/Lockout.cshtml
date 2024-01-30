@@ -1,0 +1,40 @@
+﻿@page
+@model WebApplication3.Pages.LockoutModel
+@{
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account Locked</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <!-- Add any additional CSS styling here -->
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title text-center">Account Locked</h2>
+                        <p class="card-text">
+                            Your account has been temporarily locked due to too many unsuccessful login attempts.
+                            Please wait for some time before trying again or contact support for assistance.
+                        </p>
+                        <p class="card-text text-muted">
+                            If you continue to experience issues, please reach out to our support team.
+                        </p>
+                        <!-- You can add additional information or support contact details here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Add any additional JavaScript here -->
+</body>
+</html>

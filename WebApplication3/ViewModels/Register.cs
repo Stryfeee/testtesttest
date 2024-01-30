@@ -30,5 +30,21 @@ namespace WebApplication3.ViewModels
         [Required]
         [DataType(DataType.CreditCard)]
         public string CreditCard { get; set; }
-    }
+
+        [Required]
+        [DataType(DataType.PhoneNumber)]
+        public string PhoneNumber { get; set; }
+
+        [Required]
+        [DataType(DataType.Text)]
+        public string BillingAddr { get; set; }
+
+        [Required]
+        [DataType(DataType.Text)]
+        public string ShippingAddr { get; set; }
+
+        [DataType(DataType.ImageUrl)]
+		public string pfp { get; set; }
+
+	}
 }

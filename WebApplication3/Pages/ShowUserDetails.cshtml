@@ -1,0 +1,51 @@
+﻿@page
+@model ShowUserDetailsModel
+@{
+    ViewData["Title"] = "User Details";
+}
+
+<h1>User Details</h1>
+
+@if (Model.FirstName != null && Model.LastName != null)
+{
+    <dl>
+        <dt>First Name</dt>
+        <dd>@Model.FirstName</dd>
+
+        <dt>Last Name</dt>
+        <dd>@Model.LastName</dd>
+
+        <dt>Email</dt>
+        <dd>@Model.Email</dd>
+
+        <dt>Mobile Number</dt>
+        <dd>@Model.PhoneNumber</dd>
+
+        <dt>Billing Address</dt>
+        <dd>@Model.BillingAddr</dd>
+
+        <dt>Shipping Address</dt>
+        <dd>@Model.ShippingAddr</dd>
+
+        <dt>Credit Card</dt>
+        <dd>@Model.CreditCard</dd>
+
+        <dt>Profile Picture</dt>
+        <dd>
+            @if (!string.IsNullOrEmpty(Model.pfp))
+            {
+                <img src="@Model.pfp" alt="@Model.pfp" style="max-width: 200px; max-height: 200px;" />
+            }
+            else
+            {
+                <span>No profile picture available</span>
+            }
+        </dd>
+
+        <!-- Add other properties as needed -->
+    </dl>
+}
+else
+{
+    <p>User not found or not authenticated.</p>
+}
